@@ -8,7 +8,7 @@ var express     = require('express'),
     
 
 
-mongoose.connect('mongodb://localhost/img-srch',{useMongoClient: true});
+mongoose.connect(process.env.DATABASEURL,{useMongoClient: true});
 const client = new search(process.env.SEARCHID, process.env.APIKEY);    
 mongoose.Promise = global.Promise;
 app.set('view engine', 'ejs');
