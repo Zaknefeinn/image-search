@@ -37,6 +37,7 @@ app.get('/history',function(req,res){
 app.get('/search/:query', function(req,res){
     var page = req.query.offset ? req.query.offset : 1;
     resetHistory();
+    searchResults=[];
     var historydb = new History({
         term: req.params.query,
         when: new Date().toString()
@@ -58,7 +59,7 @@ app.get('/search/:query', function(req,res){
                 if(err) throw err;
 
             });
-            searchResults.push(newSearch);
+                searchResults.push(newSearch);
                         // console.log('saved ' + newSearch._id)
     }
         var data=[];
